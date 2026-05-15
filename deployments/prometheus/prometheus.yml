@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: raft
+    static_configs:
+      - targets:
+          - node1:8001
+          - node2:8001
+          - node3:8001
+          - node4:8001
+          - node5:8001

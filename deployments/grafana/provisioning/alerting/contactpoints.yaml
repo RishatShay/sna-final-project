@@ -1,0 +1,11 @@
+apiVersion: 1
+contactPoints:
+  - orgId: 1
+    name: gmail-alerts
+    receivers:
+      - uid: email-gmail
+        type: email
+        disableResolveMessage: false
+        settings:
+          addresses: "ilya.syaglovv@gmail.com"  # ← Почта куда будут приходить уведомления
+          singleEmail: false
