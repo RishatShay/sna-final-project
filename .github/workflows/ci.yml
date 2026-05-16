@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.x"
+          cache: true
+          cache-dependency-path: go.mod
+
+      - name: Install SQLite build prerequisites
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+
+      - name: Download modules
+        run: go mod download
+
+      - name: Unit and integration tests
+        run: go test ./...
+
+      - name: Race detector
+        run: go test -race ./...
+
