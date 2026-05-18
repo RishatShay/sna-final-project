@@ -383,7 +383,6 @@ main() {
   local command="${1:-}"
   case "$command" in
     preflight) preflight ;;
-    tests) tests ;;
     start) start_stack ;;
     status) status_all ;;
     workload) workload ;;
